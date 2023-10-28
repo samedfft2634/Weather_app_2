@@ -24,7 +24,7 @@ body {
 
 .card {
     width: 500px;
-    height: 500px;
+    /* height: 500px; */
     border-radius: 10px;
     background-color: rgb(176, 166, 166);
     padding: 1rem;
@@ -44,6 +44,8 @@ body {
     border: none;
     border-radius: 10px;
     margin: 5px;
+    border: none;
+    outline: none;
 
 }
 
@@ -58,7 +60,6 @@ body {
 .weatherIcon {
     display: flex;
     align-items: center;
-    margin: 60px auto;
     justify-content: center;
 }
 
@@ -75,8 +76,57 @@ body {
 
 .bottomDiv {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
     justify-content: center;
     height: 30%;
+    margin: auto;
+} 
+
+/* ----------------------------------------------- icon ---------------------------------------------- */
+.weat-icon{
+    width: 120px;
 }
+
+.humSpeed {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; 
+    margin-top: 2.5rem;
+}
+
+.humidity{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    
+}
+
+.humimg {
+    width: 5rem;
+}
+.humCont {
+    line-height: .5rem;
+}
+
+.windcont {
+    line-height: .5rem;
+
+}
+
+.wind{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    
+}
+/* .windImg {
+    width: 60px;
+} */
+
+.fa-wind {
+    font-size: 4rem;
+    color: lightgray;
+}
+
