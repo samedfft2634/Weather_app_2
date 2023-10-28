@@ -1,132 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
 body {
-	background: #1fa2ff; /* fallback for old browsers */
-	background: -webkit-linear-gradient(
-		to right,
-		#a6ffcb,
-		#12d8fa,
-		#1fa2ff
-	); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(
-		to right,
-		#a6ffcb,
-		#12d8fa,
-		#1fa2ff
-	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-image: url(./assets/img/weather.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	font-family: "Roboto", sans-serif;
+	height: 100vh;
+	color: #fff;
 }
 
 .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius: 10px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 10px;
 }
 
 .card {
-    width: 500px;
-    /* height: 500px; */
-    border-radius: 10px;
-    background-color: rgb(176, 166, 166);
-    padding: 1rem;
+	width: 400px;
+	/* height: 500px; */
+	border-radius: 10px;
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
+	border: 1px solid #fff;
+	padding: 1rem;
 }
 
 .inputDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    gap: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+    border: 1px solid #fff;
+	border-radius: 10px;
+    outline: none;
 }
 
-.inputDiv input{
-    padding: 10px 15px;
-    width: 60%;
-    border: none;
-    border-radius: 10px;
-    margin: 5px;
-    border: none;
-    outline: none;
-
+.inputDiv input {
+	padding: 10px ;
+	width: 80%;
+	border: none;
+	border-radius: 10px;
+	margin: 5px;
+	outline: none;
+	background: transparent;
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
+	color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.inputDiv input::placeholder {
+	color: #fff;
 }
 
 .inputDiv button {
-    padding: 10px;
-    background-color: #fff;
-    border: none;
-    outline: none;
-    border-radius: 10px;
+    flex: 1;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	background: transparent;
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
+    right: 1rem;
+    font-size: 2rem;
+    color: #eee;
+    text-shadow: 1px 1px 3px #000;
+}
+
+.fa-location-dot{
+    margin-left: .5rem;
+    font-size: 2.4rem;
+    color: #eee;
+    text-shadow: 1px 1px 3px #000;
 }
 
 .weatherIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.weatherTemperature{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.weatherTemperature {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 .weatherTemperature span {
-    font-size: 3rem;
+	font-size: 3rem;
 }
 
 .bottomDiv {
-    display: flex;
-    gap: 3rem;
-    align-items: center;
-    justify-content: center;
-    height: 30%;
-    margin: auto;
-} 
+	display: flex;
+	gap: 3rem;
+	align-items: center;
+	justify-content: center;
+	height: 30%;
+	margin: auto;
+}
+
+   
+
 
 /* ----------------------------------------------- icon ---------------------------------------------- */
-.weat-icon{
-    width: 120px;
+.weat-icon {
+	width: 200px;
 }
 
 .humSpeed {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly; 
-    margin-top: 2.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	margin-top: 2.5rem;
 }
 
-.humidity{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    
+.humidity {
+	display: flex;
+	align-items: center;
+	justify-content: end;
 }
 
 .humimg {
-    width: 5rem;
+	width: 5rem;
 }
 .humCont {
-    line-height: .5rem;
+	line-height: 0.5rem;
 }
 
 .windcont {
-    line-height: .5rem;
-
+	line-height: 0.5rem;
 }
 
-.wind{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    
+.wind {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
 }
 /* .windImg {
     width: 60px;
 } */
 
 .fa-wind {
-    font-size: 4rem;
-    color: lightgray;
+	font-size: 4rem;
+	color: lightgray;
 }
 
+.location {
+    text-transform: capitalize;
+}
