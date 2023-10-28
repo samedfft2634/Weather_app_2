@@ -36,9 +36,13 @@ function changeBackgroundVideo(weatherCondition) {
     backgroundVideo.play();
 }
 
-
+let lastClicked = 0;
 searchBtn.addEventListener("click", async function weather() {
+	const now = Date.now();
+    if (now - lastClicked < 1000) return; // 1 saniye içerisinde tekrar tıklama engellendi
+    lastClicked = now;
 	const city = loc.value.trim(); // trim() ile gereksiz boşlukları kaldırdık
+	
 
 	if (!city) {
 		Swal.fire("Error!", "Please enter a city name!", "error");

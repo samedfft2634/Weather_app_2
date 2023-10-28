@@ -8,6 +8,7 @@ body {
 	font-family: "Roboto", sans-serif;
 	height: 100vh;
 	color: #fff;
+	overflow-y: hidden;
 }
 video#backgroundVideo {
     position: fixed;
