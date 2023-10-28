@@ -10,39 +10,37 @@ const botDiv = document.querySelector(".bottomDiv");
 botDiv.style.display = "block";
 botDiv.style.height = "0";
 
-// Fonksiyonu buraya ekleyin
 function changeBackgroundVideo(weatherCondition) {
-    const backgroundVideo = document.getElementById('backgroundVideo');
+	const backgroundVideo = document.getElementById("backgroundVideo");
 
-    switch(weatherCondition) {
-        case 'Clouds':
-            backgroundVideo.src = './assets/bck-videos/clouds.mp4';
-            break;
-        case 'Rain':
-        case 'Drizzle':
-            backgroundVideo.src = './assets/bck-videos/rainy.mp4';
-            break;
-        case 'Clear':
-            backgroundVideo.src = './assets/bck-videos/sunny.mp4';
-            break;
-        case 'Snow':
-            backgroundVideo.src = './assets/bck-videos/snowy.mp4';
-            break;
-        default:
-            backgroundVideo.src = './assets/bck-videos/current.mp4';
-    }
+	switch (weatherCondition) {
+		case "Clouds":
+			backgroundVideo.src = "./assets/bck-videos/clouds.mp4";
+			break;
+		case "Rain":
+		case "Drizzle":
+			backgroundVideo.src = "./assets/bck-videos/rainy.mp4";
+			break;
+		case "Clear":
+			backgroundVideo.src = "./assets/bck-videos/sunny.mp4";
+			break;
+		case "Snow":
+			backgroundVideo.src = "./assets/bck-videos/snowy.mp4";
+			break;
+		default:
+			backgroundVideo.src = "./assets/bck-videos/current.mp4";
+	}
 
-    backgroundVideo.load();
-    backgroundVideo.play();
+	backgroundVideo.load();
+	backgroundVideo.play();
 }
 
 let lastClicked = 0;
-searchBtn.addEventListener("click", async function weather() {
+async function weather() {
 	const now = Date.now();
-    if (now - lastClicked < 1000) return; // 1 saniye içerisinde tekrar tıklama engellendi
-    lastClicked = now;
+	if (now - lastClicked < 1000) return; // 1 saniye içerisinde tekrar tıklama engellendi
+	lastClicked = now;
 	const city = loc.value.trim(); // trim() ile gereksiz boşlukları kaldırdık
-	
 
 	if (!city) {
 		Swal.fire("Error!", "Please enter a city name!", "error");
@@ -58,7 +56,7 @@ searchBtn.addEventListener("click", async function weather() {
 			botDiv.style.display = "block";
 			const data = await response.json();
 			// Burada fonksiyonu çağırıyoruz
-            changeBackgroundVideo(data.weather[0].main);
+			changeBackgroundVideo(data.weather[0].main);
 			weatherIcon.innerHTML = "";
 			weatherTemp.innerHTML = "";
 			humSpeed.innerHTML = "";
@@ -93,7 +91,7 @@ searchBtn.addEventListener("click", async function weather() {
 			let humidity = document.createElement("div");
 			humidity.className = "humidity";
 			humSpeed.appendChild(humidity);
-		
+
 			// add humimg and humcontent
 			//hum img div
 			let humImgDiv = document.createElement("div");
@@ -147,7 +145,11 @@ searchBtn.addEventListener("click", async function weather() {
 		botDiv.style.display = "none";
 		loc.value = "";
 	}
-});
+}
 
-// main.humidity
-// data.wind.speed
+searchBtn.addEventListener("click", weather);
+loc.addEventListener("keyup", (e) => {
+	if (e.keyCode === 13) {
+		weather();
+	}
+});

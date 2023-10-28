@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
-
+:root{
+	--shadow: 1px 1px 3px #000;
+}
 body {
 	background-image: url(./assets/img/weather.jpg);
 	background-repeat: no-repeat;
@@ -35,7 +37,10 @@ video#backgroundVideo {
 	backdrop-filter: blur(5px);
 	border: 1px solid #fff;
 	padding: 1rem;
+	transition: all ease-in-out 1s;
+
 }
+
 
 .inputDiv {
 	display: flex;
@@ -72,12 +77,15 @@ video#backgroundVideo {
 	outline: none;
 	border-radius: 10px;
 	background: transparent;
-	-webkit-backdrop-filter: blur(5px);
-	backdrop-filter: blur(5px);
-    right: 1rem;
     font-size: 2rem;
     color: #eee;
     text-shadow: 1px 1px 3px #000;
+	cursor: pointer;
+}
+
+.inputDiv i{
+	animation: slide 2s ease 0s 1 normal forwards infinite;
+	transition: all ease-in-out 1s;
 }
 
 .fa-location-dot{
@@ -157,9 +165,28 @@ video#backgroundVideo {
 
 .fa-wind {
 	font-size: 4rem;
-	color: lightgray;
+	color: white;
+	text-shadow: var(--shadow)
 }
 
 .location {
     text-transform: capitalize;
+	text-shadow: var(--shadow);
+}
+
+.temperature {
+	text-shadow: var(--shadow);
+
+}
+
+@keyframes slide {
+	0% {
+		opacity: 0;
+		transform: translateY(-250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
