@@ -61,7 +61,7 @@ async function weather() {
 		return
 	} 
 	const now = Date.now();
-	if (now - lastClicked < 1000) return; // 1 saniye içerisinde tekrar tıklama engellendi
+	if (now - lastClicked < 1000) return;
 	lastClicked = now;
 	weatherUpdate(data)
 	console.log(data)
@@ -81,7 +81,6 @@ function weatherUpdate(data){
 				console.log("aaabbb")
 			}
 			botDiv.style.display = "block";
-			// Burada fonksiyonu çağırıyoruz
 			changeBackgroundVideo(data.weather[0].main);
 			weatherIcon.innerHTML = "";
 			weatherTemp.innerHTML = "";
@@ -200,6 +199,10 @@ locBtn.addEventListener("click",async ()=>{
 		const coords = await getUserLocation()
 		fetchWeatherByCoords(coords.latitude,coords.longitude)
 	} catch (error) {
-		console.error("Konum bilgisi alinamadi!",error)
+		Swal.fire({
+			icon:"question",
+			title:"Location Denied!",
+			text:"Please allow your location information!"
+		})
 	}
 });
