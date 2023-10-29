@@ -40,7 +40,16 @@ video#backgroundVideo {
 	transition: all ease-in-out 1s;
 
 }
-
+.here{
+	border: 2px solid red;
+	margin-bottom: 1rem;
+	display: inline-block;
+	width: 5rem;
+	position: relative;
+	top: 32%;
+	left: 35%;
+	font-size: 1rem;
+}
 
 .inputDiv {
 	display: flex;
@@ -91,8 +100,22 @@ video#backgroundVideo {
 .fa-location-dot{
     margin-left: .5rem;
     font-size: 2.4rem;
-    color: #eee;
+    color: greenyellow;
     text-shadow: 1px 1px 3px #000;
+	animation: blink 1s linear infinite alternate;
+}
+.loc-btn{
+	position: relative;
+}
+.loc-btn span{
+	position: absolute;
+	border: 2px solid red;
+	width: 350px;
+	padding: .5rem;
+	text-align: left;
+	font-size: 1.5rem;
+	left: -18rem;
+	top: .4rem
 }
 
 .weatherIcon {
@@ -169,10 +192,7 @@ video#backgroundVideo {
 	text-shadow: var(--shadow)
 }
 
-.location {
-    text-transform: capitalize;
-	text-shadow: var(--shadow);
-}
+
 
 .temperature {
 	text-shadow: var(--shadow);
@@ -190,3 +210,9 @@ video#backgroundVideo {
 		transform: translateY(0);
 	}
 }
+
+@keyframes blink{
+	0%{opacity: 0;}
+	50%{opacity: .5;}
+	100%{opacity: 1;}
+	}

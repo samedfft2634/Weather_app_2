@@ -14,32 +14,45 @@
 		<!-- SweetAlert2 JS dosyası -->
 
 		<!-- fontawesome cdn  -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+			integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 	</head>
 	<body>
 		<video id="backgroundVideo" playsinline autoplay muted loop>
-			<source src="./assets/bck-videos/current.mp4" type="video/mp4">
-		  </video>
+			<source src="./assets/bck-videos/current.mp4" type="video/mp4" />
+		</video>
 		<div class="container">
 			<div class="card">
 				<div class="inputDiv">
-					<i class="fa-solid fa-location-dot"></i>
-					<input type="text" class="location" placeholder="Enter Your Location"/>
-					<button class="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
-				</div>				
+					<button type="button" class="loc-btn">
+						<span>Get Your Location Here</span>
+						<i class="fa-solid fa-location-dot"></i>
+					</button>			
+					<input
+						type="text"
+						class="location"
+						placeholder="Enter Your Location"
+					/>
+					<button class="searchBtn">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</button>
+					
+				</div>
 				<div class="bottomDiv">
-				<div class="weatherIcon">
-				</div>
-				<div class="weatherTemperature">	
-				</div>
-				<div class="humSpeed"></div>
+					<div class="weatherIcon"></div>
+					<div class="weatherTemperature"></div>
+					<div class="humSpeed"></div>
 				</div>
 			</div>
 		</div>
 
-		
 		<script src="script.js"></script>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>	
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	</body>
 </html>

@@ -7,6 +7,7 @@ const weatherIcon = document.querySelector(".weatherIcon");
 const weatherTemp = document.querySelector(".weatherTemperature");
 const humSpeed = document.querySelector(".humSpeed");
 const botDiv = document.querySelector(".bottomDiv");
+const locBtn = document.querySelector(".loc-btn");
 botDiv.style.display = "block";
 botDiv.style.height = "0";
 
@@ -37,24 +38,25 @@ function changeBackgroundVideo(weatherCondition) {
 
 let lastClicked = 0;
 async function weather() {
+	const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${loc.value}&appid=${apiKey}`)
+	const data = await response.json();
 	const now = Date.now();
 	if (now - lastClicked < 1000) return; // 1 saniye içerisinde tekrar tıklama engellendi
 	lastClicked = now;
-	const city = loc.value.trim(); // trim() ile gereksiz boşlukları kaldırdık
+	weatherUpdate(data)
+	console.log(data)
+}
 
-	if (!city) {
-		Swal.fire("Error!", "Please enter a city name!", "error");
-		botDiv.style.display = "none";
-		return;
+searchBtn.addEventListener("click", weather);
+loc.addEventListener("keyup", (e) => {
+	if (e.keyCode === 13) {
+		weather();
 	}
-
-	try {
-		const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-
-		if (response.ok) {
+});
+function weatherUpdate(data){
+		if (data.cod === 200) {
 			botDiv.style.height = "500px";
 			botDiv.style.display = "block";
-			const data = await response.json();
 			// Burada fonksiyonu çağırıyoruz
 			changeBackgroundVideo(data.weather[0].main);
 			weatherIcon.innerHTML = "";
@@ -79,7 +81,7 @@ async function weather() {
 			// Temperature
 			let temp = document.createElement("span");
 			temp.className = "temperature";
-			temp.innerHTML = `${Math.round(data.main.temp)}&#8451`;
+			temp.innerHTML = `${Math.round(data.main.temp -273.15)}&#8451`;
 			weatherTemp.appendChild(temp);
 			// location
 			let location = document.createElement("span");
@@ -132,24 +134,50 @@ async function weather() {
 			windCont.innerHTML = `<p>${data.wind.speed}Km/h</p>
 			<p>Wind Speed</p>`;
 			wind.appendChild(windCont);
-			console.log(data);
+
+			//location input.value
+			loc.value = data.name
+			// console.log(data);
 		} else {
-			throw new Error(response.statusText);
+			throw new Error(data.message);
 		}
-	} catch (err) {
-		Swal.fire(
-			"There is no city or country like this!",
-			err.message,
-			"error"
-		);
-		botDiv.style.display = "none";
-		loc.value = "";
-	}
+	} 
+
+
+
+
+
+async function fetchWeatherByCoords(lat, lon) {
+	const response = await fetch(
+	   `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+	);
+	const data = await response.json();
+	weatherUpdate(data);
+	console.log(data);
+  }
+
+function getUserLocation() {
+	return new Promise((resolve, reject) => {
+	  if (!navigator.geolocation) {
+		reject("Geolocation desteklenmiyor.");
+		return;
+	  }
+	  navigator.geolocation.getCurrentPosition(
+		(position) => {
+		  resolve(position.coords);
+		},
+		(error) => {
+		  reject(error.message);
+		}
+	  );
+	});
 }
 
-searchBtn.addEventListener("click", weather);
-loc.addEventListener("keyup", (e) => {
-	if (e.keyCode === 13) {
-		weather();
+locBtn.addEventListener("click",async ()=>{
+	try {
+		const coords = await getUserLocation()
+		fetchWeatherByCoords(coords.latitude,coords.longitude)
+	} catch (error) {
+		console.error("Konum bilgisi alinamadi!",error)
 	}
 });
