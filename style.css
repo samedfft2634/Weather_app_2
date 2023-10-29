@@ -230,11 +230,13 @@ video#backgroundVideo {
 
 @media (max-width:400px) {
 	.card {
-		width: 100%;
+		width: 320px;
 		padding: 1rem;
 	}
 	.container {
-		left: 46%;
+		top: 20%;
+		left: 50%;
+		margin: 250px auto;
 	}
 	.location{
 		text-align: center;
@@ -244,6 +246,9 @@ video#backgroundVideo {
 	}
 	.inputDiv {
 	width: 100%;
+	}
+	.inputDiv input {
+		font-size: 1rem;
 	}
 }
 
