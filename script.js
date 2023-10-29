@@ -1,4 +1,5 @@
 const loc = document.querySelector(".location");
+const container = document.querySelector(".container");
 const searchBtn = document.querySelector(".searchBtn");
 const apiKey = "feec9c8ff3dd920b17ff3d67c65a3910";
 const apiUrl =
@@ -8,6 +9,7 @@ const weatherTemp = document.querySelector(".weatherTemperature");
 const humSpeed = document.querySelector(".humSpeed");
 const botDiv = document.querySelector(".bottomDiv");
 const locBtn = document.querySelector(".loc-btn");
+const body = document.querySelector("body");
 botDiv.style.display = "block";
 botDiv.style.height = "0";
 
@@ -74,6 +76,10 @@ loc.addEventListener("keyup", (e) => {
 function weatherUpdate(data){
 		if (data.cod === 200) {
 			botDiv.style.height = "500px";
+			if(window.innerWidth < "400"){
+				container.style.margin = "250px auto"
+				console.log("aaabbb")
+			}
 			botDiv.style.display = "block";
 			// Burada fonksiyonu çağırıyoruz
 			changeBackgroundVideo(data.weather[0].main);
@@ -82,13 +88,10 @@ function weatherUpdate(data){
 			humSpeed.innerHTML = "";
 			let icon = document.createElement("img");
 			icon.className = "weat-icon";
-			if (data.weather[0].main === "Clouds") {
-				icon.src = "./assets/img/clouds.gif"; //gif eklenecek
-			} else if (
-				data.weather[0].main === "Rain" ||
-				data.weather[0].main === "Drizzle"
-			) {
-				icon.src = "./assets/img/rain.gif"; //gif eklenecek
+			if (data.weather[0].main === "Clouds"  ) {
+				icon.src = "./assets/img/clouds.gif"; 
+			} else if (	data.weather[0].main === "Rain" || data.weather[0].main === "Drizzle") {
+				icon.src = "./assets/img/rain.gif"; 
 			} else if (data.weather[0].main === "Clear") {
 				icon.src = "./assets/img/sun.gif";
 			} else if (data.weather[0].main === "Snow") {
@@ -165,10 +168,6 @@ function weatherUpdate(data){
 			loc.value = ""
 		}
 	} 
-
-
-
-
 
 async function fetchWeatherByCoords(lat, lon) {
 	const response = await fetch(

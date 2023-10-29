@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
-:root{
+:root {
 	--shadow: 1px 1px 3px #000;
 }
 body {
-	background-image: url(./assets/img/weather.jpg);
+	background-image: url(./assets/img/weather.jpg) !important;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -13,13 +13,13 @@ body {
 	overflow-y: hidden;
 }
 video#backgroundVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
-    opacity: 0.9;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -1;
+	opacity: 0.9;
 }
 .container {
 	position: absolute;
@@ -38,9 +38,8 @@ video#backgroundVideo {
 	border: 1px solid #fff;
 	padding: 1rem;
 	transition: all ease-in-out 1s;
-
 }
-.here{
+.here {
 	border: 2px solid red;
 	margin-bottom: 1rem;
 	display: inline-block;
@@ -56,13 +55,13 @@ video#backgroundVideo {
 	align-items: center;
 	justify-content: center;
 	margin: auto;
-    border: 1px solid #fff;
+	border: 1px solid #fff;
 	border-radius: 10px;
-    outline: none;
+	outline: none;
 }
 
 .inputDiv input {
-	padding: 10px ;
+	padding: 10px;
 	width: 80%;
 	border: none;
 	border-radius: 10px;
@@ -72,59 +71,58 @@ video#backgroundVideo {
 	-webkit-backdrop-filter: blur(5px);
 	backdrop-filter: blur(5px);
 	color: #fff;
-    font-weight: bold;
-    font-size: 1.5rem;
+	font-weight: bold;
+	font-size: 1.5rem;
 }
 .inputDiv input::placeholder {
 	color: #fff;
 }
 
 .inputDiv button {
-    flex: 1;
+	flex: 1;
 	padding: 10px;
 	border: none;
 	outline: none;
 	border-radius: 10px;
 	background: transparent;
-    font-size: 2rem;
-    color: #eee;
+	font-size: 2rem;
+	color: #eee;
 	cursor: pointer;
 }
 
-.inputDiv i{
+.inputDiv i {
 	animation: slide 2s ease 0s 1 normal forwards infinite;
 	transition: all ease-in-out 1s;
-    text-shadow: 1px 1px 3px #000;
+	text-shadow: 1px 1px 3px #000;
 }
-.fa-location-dot{
-    margin-left: .5rem;
-    font-size: 2.4rem;
-    color: greenyellow;
-    text-shadow: 1px 1px 3px #000;
+.fa-location-dot {
+	margin-left: 0.5rem;
+	font-size: 2.4rem;
+	color: greenyellow;
+	text-shadow: 1px 1px 3px #000;
 	animation: blink 1s linear infinite alternate;
 }
-.loc-btn{
+.loc-btn {
 	position: relative;
 }
 
-.loc-btn:hover .loc-span{
+.loc-btn:hover .loc-span {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-    opacity: 1; /* Tamamen opak yap */
-    transform: translateY(0);
+	opacity: 1; /* Tamamen opak yap */
+	transform: translateY(0);
 	visibility: visible;
-
 }
 .loc-span {
 	opacity: 0; /* Başlangıçta tamamen saydam */
-    transform: translateY(20px); /* Başlangıçta biraz aşağıda */
-    transition: opacity 0.7s, transform 0.7s;
+	transform: translateY(20px); /* Başlangıçta biraz aşağıda */
+	transition: opacity 0.7s, transform 0.7s;
 	/* border: 2px solid red; */
 	position: absolute;
 	height: 4.7rem;
 	width: 6.5rem;
-	color:#000;
+	color: #000;
 	top: -6.5rem;
 	left: -1.2rem;
 	font-size: 1rem;
@@ -134,7 +132,7 @@ video#backgroundVideo {
 	visibility: hidden;
 }
 
-.loc-img{
+.loc-img {
 	width: 150px;
 	position: absolute;
 	top: -2rem;
@@ -167,9 +165,6 @@ video#backgroundVideo {
 	height: 30%;
 	margin: auto;
 }
-
-   
-
 
 /* ----------------------------------------------- icon ---------------------------------------------- */
 .weat-icon {
@@ -213,22 +208,22 @@ video#backgroundVideo {
 .fa-wind {
 	font-size: 4rem;
 	color: white;
-	text-shadow: var(--shadow)
+	text-shadow: var(--shadow);
 }
-
-
 
 .temperature {
 	text-shadow: var(--shadow);
-
 }
 
-.location{
+.location {
 	text-transform: capitalize;
 	text-shadow: var(--shadow);
 }
 
-@media (max-width:400px) {
+@media (max-width: 600px) {
+	body{
+		background-image: url(./assets/img/rainmin.jpg) !important;
+	}
 	.card {
 		width: 320px;
 		padding: 1rem;
@@ -236,23 +231,20 @@ video#backgroundVideo {
 	.container {
 		top: 20%;
 		left: 50%;
-		margin: 250px auto;
 	}
-	.location{
+	.location {
 		text-align: center;
 	}
 	video {
-   display: none;
+		display: none;
 	}
 	.inputDiv {
-	width: 100%;
+		width: 100%;
 	}
 	.inputDiv input {
 		font-size: 1rem;
 	}
 }
-
-
 
 @keyframes slide {
 	0% {
@@ -266,9 +258,22 @@ video#backgroundVideo {
 	}
 }
 
-@keyframes blink{
-	0%{opacity: 0;}
-	50%{opacity: .5;}
-	100%{opacity: 1;}
+@keyframes blink {
+	0% {
+		opacity: 0;
 	}
-
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+div:where(.swal2-container).swal2-backdrop-show,
+div:where(.swal2-container).swal2-noanimation {
+	background-image: url(./assets/img/weather.jpg) !important;
+	background-position: center;
+	background-size: cover;
+	height: 100vh;
+	background-repeat: no-repeat;
+}
