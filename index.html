@@ -5,14 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Weather App</title>
 		<link rel="stylesheet" href="style.css" />
-		<!-- SweetAlert2 CSS dosyası -->
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
-		/>
-
-		<!-- SweetAlert2 JS dosyası -->
-
 		<!-- fontawesome cdn  -->
 		<link
 			rel="stylesheet"
@@ -30,7 +22,10 @@
 			<div class="card">
 				<div class="inputDiv">
 					<button type="button" class="loc-btn">
-						<span>Get Your Location Here</span>
+						<span class="loc-span">
+						<img src="./assets/img/quote.png" class="loc-img">
+							Get Your Location Here
+						</span>
 						<i class="fa-solid fa-location-dot"></i>
 					</button>			
 					<input
@@ -52,7 +47,6 @@
 		</div>
 
 		<script src="script.js"></script>
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	</body>
 </html>

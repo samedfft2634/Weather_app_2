@@ -11,6 +11,16 @@ const locBtn = document.querySelector(".loc-btn");
 botDiv.style.display = "block";
 botDiv.style.height = "0";
 
+loc.addEventListener("input",()=>{
+	loc.value = loc.value.replace(/\s+/g,"")
+})
+loc.addEventListener("focus",function (){
+	this.placeholder = ""
+}) 
+loc.addEventListener("blur",function (){
+	this.placeholder = "Enter Your Location"
+})
+
 function changeBackgroundVideo(weatherCondition) {
 	const backgroundVideo = document.getElementById("backgroundVideo");
 
@@ -40,6 +50,14 @@ let lastClicked = 0;
 async function weather() {
 	const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${loc.value}&appid=${apiKey}`)
 	const data = await response.json();
+	if(loc.value.trim() === ""){
+		Swal.fire({
+			icon:"error",
+			title:"Error!",
+			text:"Please enter city or country!"
+		})
+		return
+	} 
 	const now = Date.now();
 	if (now - lastClicked < 1000) return; // 1 saniye içerisinde tekrar tıklama engellendi
 	lastClicked = now;
@@ -139,7 +157,12 @@ function weatherUpdate(data){
 			loc.value = data.name
 			// console.log(data);
 		} else {
-			throw new Error(data.message);
+			Swal.fire({
+				icon:"warning",
+				title:"Warning!",
+				text:"Unvalid city or country, try again!"
+			})
+			loc.value = ""
 		}
 	} 
 
