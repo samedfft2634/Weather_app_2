@@ -64,7 +64,7 @@ async function weather() {
 	if (now - lastClicked < 1000) return;
 	lastClicked = now;
 	weatherUpdate(data)
-	console.log(data)
+	// console.log(data)
 }
 
 searchBtn.addEventListener("click", weather);
@@ -174,7 +174,6 @@ async function fetchWeatherByCoords(lat, lon) {
 	);
 	const data = await response.json();
 	weatherUpdate(data);
-	console.log(data);
   }
 
 function getUserLocation() {
