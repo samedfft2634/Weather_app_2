@@ -271,7 +271,7 @@ video#backgroundVideo {
 }
 div:where(.swal2-container).swal2-backdrop-show,
 div:where(.swal2-container).swal2-noanimation {
-	background-image: url(./assets/img/weather.jpg) !important;
+	background-image: url(./assets/img/rainmin.jpg) !important;
 	background-position: center;
 	background-size: cover;
 	height: 100vh;
