@@ -11,7 +11,7 @@
 
 
 > [!IMPORTANT]
-> <a href="weather-app-2-bice.vercel.app" >🌞LIVE☔</a> <br>
+> <a href="https://weather-app-2-bice.vercel.app/" >🌞LIVE☔</a> <br>
 
 
 <img src="https://github.com/samedfft2634/Weather_app_2/assets/100915606/20a4c878-329b-4867-bab7-a2c81ef3dd4f" width="24%" align="right"/>
@@ -28,12 +28,13 @@
 <br><br><br>
 # Problem Solved!!!
 
-<img src="https://github.com/samedfft2634/Weather_app_2/assets/100915606/c820e1f0-0745-404d-8fb0-5b09bd5c4f95" width="50%" align="right"/>
+When I try to get error alert with swal, I see the gray backround with alert screen. So I inspected the page and found the location of this problem. Then I added my body properties into this container that what comes with JavaScript <br><br><br>
 
-When I try to get error alert with swal, I see the gray <br>
-backround with alert screen. So I inspected the page<br>
-  and found the location of this problem. Then I added<br>
- my body properties into this container that what comes with JavaScript
+<img src="https://github.com/samedfft2634/Weather_app_2/assets/100915606/38fad611-c816-42bf-8196-187f432c14ac" width="46%" align="left"/>
+<img src="https://github.com/samedfft2634/Weather_app_2/assets/100915606/68c829ce-749e-4ca9-9fcc-d8924accd652" width="46%" align="left"/>
+<br><br>
+<img src="https://github.com/samedfft2634/Weather_app_2/assets/100915606/c820e1f0-0745-404d-8fb0-5b09bd5c4f95" width="94%" />
+
 
 
 
